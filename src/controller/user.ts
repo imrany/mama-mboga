@@ -1,5 +1,5 @@
 import pool from "../postgres"
-import { contactItems } from "../types";
+import { user_info } from "../types";
 
 // export const getUsers = (request, response) => {
 //     pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
@@ -59,19 +59,40 @@ import { contactItems } from "../types";
 //     })
 // }
 
-export const contact=async(req:contactItems,res:any)=>{
+const register=async(req:user_info,res:any)=>{
     try {
-        const {name, email, message}=req.body;
-        pool.query('INSERT INTO user_contact (user_name, user_email, user_message) VALUES ($1, $2, $3) RETURNING *',
-        [name, email, message], 
+        const {id, username, password, phone_number}=req.body;
+        pool.query('INSERT INTO users (id, username, phone_number, password) VALUES ($1, $2, $3, $4) RETURNING *',
+        [id, username, password, phone_number], 
         (error, results) => {
             if (error) {
             res.send({error:error})
             }else{
-                res.status(201).send({msg:`Message sent`,results:results.rows[0]})
+                res.status(201).send({msg:`Registered Successfully`,results:results.rows[0]})
             }
         })
     } catch (error:any) {
         res.status(500).send({error:error.message})
     }
+}
+
+const login=async(req:user_info,res:any)=>{
+    try {
+        const {phone_number, password}=req.body;
+        pool.query('INSERT INTO users (id, username, phone_number, password) VALUES ($1, $2, $3, $4) RETURNING *',
+        [phone_number,password], 
+        (error, results) => {
+            if (error) {
+            res.send({error:error})
+            }else{
+                res.status(201).send({msg:`Login Successfully`,results:results.rows[0]})
+            }
+        })
+    } catch (error:any) {
+        res.status(500).send({error:error.message})
+    }
+}
+export{
+    register,
+    login
 }

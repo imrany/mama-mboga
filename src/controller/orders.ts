@@ -1,7 +1,7 @@
 import { contactItems } from "../types";
 import pool from "../postgres";
 
-export const reserve=async(req:any,res:any)=>{
+export const createOrder=async(req:any,res:any)=>{
     try {
         const {
             car_id,
@@ -37,7 +37,15 @@ export const reserve=async(req:any,res:any)=>{
     }
 }
 
-export const checkReserve=async(req:any,res:any)=>{
+export const pay_of_order=async(req:any,res:any)=>{
+    try {
+        
+    } catch (error:any) {
+        res.status(500).send({error:error.message})
+    }
+}
+
+export const checkOrder=async(req:any,res:any)=>{
     try {
         const car_id = parseInt(req.params.car_id)
         pool.query('SELECT * FROM reserved_cars WHERE car_id = $1', [car_id],

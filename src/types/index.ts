@@ -1,11 +1,22 @@
-type contactBody={
-    name:string,
-    email:string,
-    message:string
+type orderBody={
+   id:string,
+   username:string,
+   location:string,
+   phone_number:number,
+   amount_paid:number
 }
-export interface contactItems{
-    body:contactBody
+
+type user_info_body={
+    id:string,
+    username:string,
+    email?:string,
+    phone_number:number,
+    password:string,
 }
+interface user_info{
+    body:user_info_body
+}
+
 
 type reserveBody={
     car_id:number,
@@ -30,4 +41,8 @@ export interface reserveRequest{
     body:reserveBody,
     token:string,
     data:reserveBody
+}
+
+export type{
+    user_info,
 }

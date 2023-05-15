@@ -1,8 +1,9 @@
 import express from "express"
 import { 
-    reserve,
-    checkReserve
-} from "../controller/reserve"
+    createOrder,
+    pay_of_order,
+    checkOrder
+} from "../controller/orders"
 import{
     token,
     stkPush,
@@ -10,22 +11,19 @@ import{
     getTransaction
 } from '../controller/mpesa'
 import { 
-    adminLogin 
-} from "../controller/admin"
-import { 
-    contact
+    login, register
  } from "../controller/user"
 const router=express.Router()
 
-router.post("/reserve_car",token,stkPush,reserve)
-router.get("/reserve_car/:car_id",checkReserve)
-router.post('/contact', contact)
+router.post("/pay/:id",token,stkPush,pay_of_order)
+router.get("/order/:car_id",checkOrder)
+router.post('/create_order/:id',createOrder)
+router.post('/auth/register', register)
+router.post('/auth/login',login)
 
 router.post('/stkpush',token,stkPush);
 router.post('/callback',callBack);
 router.get("/transaction", getTransaction)
 
-//admin api routes
-router.post('/admin/login',adminLogin)
 
 export default router
