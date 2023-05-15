@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import * as dotenv from "dotenv"
-import router from "./routes/api"
+import routes  from "./routes/api.js"
 dotenv.config()
 
 const corsOptions={
@@ -12,7 +12,7 @@ const app=express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors(corsOptions))
-app.use("/api",router)
+app.use("/api",routes)
 
 const port=process.env.PORT||8080
 app.listen(port,()=>{

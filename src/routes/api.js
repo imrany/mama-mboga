@@ -3,27 +3,18 @@ import {
     createOrder,
     pay_of_order,
     checkOrder
-} from "../controller/orders"
-import{
-    token,
-    stkPush,
-    callBack,
-    getTransaction
-} from '../controller/mpesa'
+} from "../controller/orders.js"
+
 import { 
     login, register
- } from "../controller/user"
-const router=express.Router()
+ } from "../controller/user.js"
 
-router.post("/pay/:id",token,stkPush,pay_of_order)
-router.get("/order/:id",checkOrder)
-router.post('/create_order/:id',createOrder)
-router.post('/auth/register', register)
-router.post('/auth/login',login)
+const routes=express.Router()
 
-router.post('/stkpush',token,stkPush);
-router.post('/callback',callBack);
-router.get("/transaction", getTransaction)
+routes.post("/pay/:id",pay_of_order)
+routes.get("/order/:id",checkOrder)
+routes.post('/create_order/:id',createOrder)
+routes.post('/auth/register', register)
+routes.post('/auth/login',login)
 
-
-export default router
+export default routes
