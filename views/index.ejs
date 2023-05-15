@@ -1,0 +1,81 @@
+<html lang="en">
+<%- include('./partials/head.ejs')%>
+<style>
+    .admin-login{
+        text-align: center;
+        padding: 10px 0;
+    }
+    .admin-login form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .admin-login form input{
+        margin: 10px 0;
+        padding: 10px;
+        width: 50vw;
+        border-radius: 10px;
+        border: 1px solid gray;
+    }
+    .admin-login form button{
+        margin: 10px 0;
+        padding: 10px;
+        width: 50vw;
+        font-size: medium;
+        background: black;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+    }
+    @media screen and (max-width:600px) {
+        .admin-login form input, .admin-login form button{
+            width: 80vw;
+        }
+    }
+</style>
+<body>
+    <div class="admin-login">
+        <h1>Car rental /Admin</h1>
+        <form>
+            <input placeholder="Username" name="Username" type="text" required/>
+            <input placeholder="password" name="password" type="password" required/>
+            <button>Login</button>
+        </form>
+    </div>
+    <script>
+        if(sessionStorage.getItem("token")){
+            window.location.href="/admin/home"
+        }
+        
+        const form=document.querySelector('form')
+        form.addEventListener('submit',async(e)=>{
+            e.preventDefault()
+            const Username=form.Username.value
+            const password=form.password.value
+            try {
+                const url=`/api/admin/login`
+                const response=await fetch(url,{
+                    method:"POST",
+                    body:JSON.stringify({
+                        Username,
+                        password
+                    }),
+                    headers:{
+                        'content-type':'application/json'
+                    }
+                })
+                const parseRes=await response.json()
+                if(parseRes.error){
+                    alert(parseRes.error)
+                }else{
+                    sessionStorage.setItem("token",parseRes.token)
+                    window.location.href=parseRes.link
+                }
+            } catch (error) {
+                alert(error.message)
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<html lang="en">
+<%- include('../partials/head.ejs')%>
+<style>
+   .home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+   table {
+    margin:5vh 0;
+    border-collapse: collapse;
+    width: 100%;
+    }
+    tr:nth-child(even) {
+    background-color: #D6EEEE;
+    }
+   th, td{
+        text-align: center;
+        padding:5px 10px;
+    }
+   @media screen and (max-width:600px) {
+        
+    }
+</style>
+<body>
+    <div class="home">
+        <div class="details">
+            <table style="font-size: small; width: 80wv;">
+                <tr>
+                   <%if(name==="reserved_cars"){%>
+                        <%fields.slice(0,15).map(i=>{%>
+                            <th><%=i.name%></th>
+                        <%})%>
+                    <%}else{%>
+                        <%fields.map(i=>{%>
+                            <th><%=i.name%></th>
+                        <%})%>
+                    <%}%>
+                </tr>
+                    <%results.forEach(item=>{%>
+                        <%if(name==="reserved_cars"){%>
+                            <tr key="<%=item.car_id%>">
+                                <td><%=item.car_id%></td>
+                                <td><%=item.firstname%></td>
+                                <td><%=item.lastname%></td>
+                                <td><%=item.email%></td>
+                                <td>0<%=item.phonenumber%></td>
+                                <td><%=item.numberofdays%></td>
+                                <td><%=item.numberofluggage%></td>
+                                <td><%=item.numberofperson%></td>
+                                <td><%=item.drive%></td>
+                                <td><%=item.fromaddress%></td>
+                                <td><%=item.toaddress%></td>
+                                <td><%=item.journeytime%></td>
+                                <td><%=item.journeydate%></td>
+                                <td><%=item.amount%></td>
+                                <td><%=item.reason%></td>
+                            </tr>
+                        <%}%>
+                    <%})%>
+                </table>
+        </div>
+    </div>
+    <script>
+       if(!sessionStorage.getItem("token")){
+        window.location.href="/admin"
+       }
+       
+    </script>
+</body>
+</html>
