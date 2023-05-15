@@ -1,4 +1,4 @@
-# Car rental api
+# Mama mboga api
 This is the client's server-side code.
 
 # Routes
@@ -7,11 +7,11 @@ This is the client's server-side code.
 # Contribution 
 Fork the repo or clone
 ```bash
-git clone https://github.com/imrany/React-Car-Reantal-Website
+git clone https://github.com/imrany/Mama-mboga
 ```
 then 
 ```bash
-cd React-Car-Reantal-Website/server
+cd Mama-mboga
 ```
 Engine configurations:
 Ensure you have
