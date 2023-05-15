@@ -13,35 +13,11 @@ then
 ```bash
 cd mama-mboga
 ```
-Engine configurations:
-Ensure you have
-`node v14.19.1` 
-and 
-`npm v6.14.16`
-then
-```bash
+then 
+```bash 
 npm i
 ```
-
-Then Run
-```bash 
-docker-compose up -d
-```
-# Sql
+then
 ```bash
-npm install -g run-sql-cli
+npm run dev
 ```
-usage:
- ```bash
- run-sql ./schema.sql --user=root --password=root --database=my_db
- ```
- options:
---host [optional] The hostname of the database you are connecting to.
---port [optional] The port number to connect to.
---user The MySQL user to authenticate as.
---password The password of that MySQL user.
---socketPath [optional] The path to a unix domain socket to connect to. When used host and port are ignored.
---database Name of the database to use for this connection
-
--V, --version output the version number
--h, --help output usage information
