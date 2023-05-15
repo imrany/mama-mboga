@@ -1,4 +1,3 @@
-import { contactItems } from "../types";
 import pool from "../postgres";
 
 export const createOrder=async(req:any,res:any)=>{
