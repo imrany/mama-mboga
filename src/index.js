@@ -12,7 +12,7 @@ const app=express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors(corsOptions))
-app.use("/api",routes)
+app.use(routes)
 
 const port=process.env.PORT||8080
 app.listen(port,()=>{
