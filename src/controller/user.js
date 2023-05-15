@@ -59,7 +59,7 @@ import { user_info } from "../types";
 //     })
 // }
 
-const register=async(req:user_info,res:any)=>{
+const register=async(req,res)=>{
     try {
         const {id, username, password, phone_number}=req.body;
         pool.query('INSERT INTO users (id, username, phone_number, password) VALUES ($1, $2, $3, $4) RETURNING *',
@@ -71,12 +71,12 @@ const register=async(req:user_info,res:any)=>{
                 res.status(201).send({msg:`Registered Successfully`,results:results.rows[0]})
             }
         })
-    } catch (error:any) {
+    } catch (error) {
         res.status(500).send({error:error.message})
     }
 }
 
-const login=async(req:user_info,res:any)=>{
+const login=async(req,res)=>{
     try {
         const {phone_number, password}=req.body;
         pool.query('SELECT * FROM order WHERE phone_number = $1 AND password=$2',
@@ -88,7 +88,7 @@ const login=async(req:user_info,res:any)=>{
                 res.status(201).send({msg:`Login Successfully`,results:results.rows[0]})
             }
         })
-    } catch (error:any) {
+    } catch (error) {
         res.status(500).send({error:error.message})
     }
 }

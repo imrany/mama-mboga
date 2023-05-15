@@ -7,11 +7,11 @@ This is the client's server-side code.
 # Contribution 
 Fork the repo or clone
 ```bash
-git clone https://github.com/imrany/Mama-mboga
+git clone https://github.com/imrany/mama-mboga
 ```
 then 
 ```bash
-cd Mama-mboga
+cd mama-mboga
 ```
 Engine configurations:
 Ensure you have

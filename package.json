@@ -1,16 +1,11 @@
 {
-  "name": "Mama mboga",
+  "name": "mama-mboga",
   "version": "1.0.0",
   "description": "Mama mboga pwa",
   "main": "index.js",
-  "engines": {
-    "npm": "6.14.16",
-    "node": "14.19.1"
-  },
   "scripts": {
-    "start": "node ./build/index.js",
-    "dev": "npx nodemon",
-    "build": "tsc",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "clean": "rm -rf ./build"
   },
   "keywords": [
@@ -27,8 +22,7 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.4",
-    "nodemailer": "^6.9.1",
-    "pg": "^8.10.0"
+    "nodemailer": "^6.9.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",

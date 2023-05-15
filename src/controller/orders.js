@@ -1,6 +1,6 @@
 import pool from "../postgres";
 
-export const createOrder=async(req:any,res:any)=>{
+export const createOrder=async(req,res)=>{
     try {
         const {
             car_id,
@@ -31,20 +31,20 @@ export const createOrder=async(req:any,res:any)=>{
                 res.status(201).send({msg:`Car reserved with the ID: ${results.rows[0].car_id}`,results:results.rows[0]})
             }
         })
-    } catch (error:any) {
+    } catch (error) {
         res.status(500).send({error:error.message})
     }
 }
 
-export const pay_of_order=async(req:any,res:any)=>{
+export const pay_of_order=async(req,res)=>{
     try {
         
-    } catch (error:any) {
+    } catch (error) {
         res.status(500).send({error:error.message})
     }
 }
 
-export const checkOrder=async(req:any,res:any)=>{
+export const checkOrder=async(req,res)=>{
     try {
         const {id} = req.params
         pool.query('SELECT * FROM order WHERE id = $1', [id],
@@ -57,7 +57,7 @@ export const checkOrder=async(req:any,res:any)=>{
                 res.status(200).send({item:"Item not available",results:results.rows[0]})
             }
         })
-    } catch (error:any) {
+    } catch (error) {
         res.status(500).send({error:error.message})
     }
 }

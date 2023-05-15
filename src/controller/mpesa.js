@@ -26,7 +26,7 @@ const newPassword=()=>{
 }
 
 //token
-export const token=(req:any,res:any,next:any)=>{
+export const token=(req,res,next)=>{
     const url= 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
     const auth= 'Basic ' + Buffer.from(process.env.CONSUMER_KEY +':'+ process.env.CONSUMER_SECRET).toString('base64'); 
     const headers={ 
@@ -44,7 +44,7 @@ export const token=(req:any,res:any,next:any)=>{
 }
 
 //stk push
-export const stkPush=(req:reserveRequest,res:any,next:any)=>{
+export const stkPush=(req,res,next)=>{
  const {
     car_id,
     firstName,
@@ -108,7 +108,7 @@ export const stkPush=(req:reserveRequest,res:any,next:any)=>{
 }
 
 //callback 
-export const callBack=async(req:any,res:any,next:any)=>{
+export const callBack=async(req,res,next)=>{
     try {
         const {
             MerchantRequestID,
@@ -139,13 +139,13 @@ export const callBack=async(req:any,res:any,next:any)=>{
             res.send({msg:"Recieved"})
             console.log({msg:"Transaction process was cancelled"},req.body)
         }
-    } catch (error:any) {
+    } catch (error) {
         res.status(500).send({error:error.message})
     }
 }
 
 // get transactions
-export const getTransaction=async(req:any,res:any)=>{
+export const getTransaction=async(req,res)=>{
     try {
         pool.query('SELECT * FROM mpesa_transactions RETURNING *',
         (error, results) => {
@@ -155,7 +155,7 @@ export const getTransaction=async(req:any,res:any)=>{
                 res.status(201).send({msg:`transaction data`,transactions:results.rows})
             }
         })
-    } catch (error:any) {
+    } catch (error) {
         res.status(500).send({error:error.message})
     }
 }
