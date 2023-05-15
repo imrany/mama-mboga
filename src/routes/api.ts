@@ -16,7 +16,7 @@ import {
 const router=express.Router()
 
 router.post("/pay/:id",token,stkPush,pay_of_order)
-router.get("/order/:car_id",checkOrder)
+router.get("/order/:id",checkOrder)
 router.post('/create_order/:id',createOrder)
 router.post('/auth/register', register)
 router.post('/auth/login',login)

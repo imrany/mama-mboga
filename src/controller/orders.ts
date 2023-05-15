@@ -22,7 +22,7 @@ export const createOrder=async(req:any,res:any)=>{
             response
         }=req.data
 
-        pool.query('INSERT INTO reserved_cars (car_id, firstName, lastName, email, phoneNumber, numberOfDays, numberOfLuggage, numberOfPerson, drive, fromAddress, toAddress, journeyTime, journeyDate, reason, amount, transactionOption, MerchantRequestID) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING *',
+        pool.query('INSERT INTO order (car_id, firstName, lastName, email, phoneNumber, numberOfDays, numberOfLuggage, numberOfPerson, drive, fromAddress, toAddress, journeyTime, journeyDate, reason, amount, transactionOption, MerchantRequestID) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING *',
         [car_id, firstName, lastName, email, phoneNumber, numberOfDays, numberOfLuggage, numberOfPerson, drive, fromAddress, toAddress, journeyTime, journeyDate, reason, amount, transactionOption, response.MerchantRequestID], 
         (error, results) => {
             if (error) {
@@ -46,15 +46,15 @@ export const pay_of_order=async(req:any,res:any)=>{
 
 export const checkOrder=async(req:any,res:any)=>{
     try {
-        const car_id = parseInt(req.params.car_id)
-        pool.query('SELECT * FROM reserved_cars WHERE car_id = $1', [car_id],
+        const {id} = req.params
+        pool.query('SELECT * FROM order WHERE id = $1', [id],
         (error, results) => {
             if (error) {
                res.send({error:error})
             }else if(!results.rows[0]){
-                res.status(404).send({not_reserved:"Available"})
+                res.status(404).send({item:"Item available"})
             }else{
-                res.status(200).send({reserved:"Reserved",results:results.rows[0]})
+                res.status(200).send({item:"Item not available",results:results.rows[0]})
             }
         })
     } catch (error:any) {

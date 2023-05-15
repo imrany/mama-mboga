@@ -79,7 +79,7 @@ const register=async(req:user_info,res:any)=>{
 const login=async(req:user_info,res:any)=>{
     try {
         const {phone_number, password}=req.body;
-        pool.query('INSERT INTO users (id, username, phone_number, password) VALUES ($1, $2, $3, $4) RETURNING *',
+        pool.query('SELECT * FROM order WHERE phone_number = $1 AND password=$2',
         [phone_number,password], 
         (error, results) => {
             if (error) {
