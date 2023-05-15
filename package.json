@@ -10,13 +10,12 @@
   "scripts": {
     "start": "node ./build/index.js",
     "dev": "npx nodemon",
-    "build": "make",
-    "clean": "make clean",
-    "copy":"make copy"
+    "build": "tsc",
+    "clean": "rm -rf ./build"
   },
   "keywords": [
-    "car",
-    "reantal"
+    "mama mboga",
+    "groceries"
   ],
   "author": "imrany",
   "license": "MIT",
@@ -30,8 +29,6 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.4",
     "nodemailer": "^6.9.1",
-    "passport": "^0.6.0",
-    "passport-local": "^1.0.0",
     "pg": "^8.10.0"
   },
   "devDependencies": {
