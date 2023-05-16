@@ -7,9 +7,9 @@ import { products } from './data'
 window.scrollTo(0,0)
 document.querySelector('#app').innerHTML = `
   <nav>
-    <div>
+    <a href="/index.html">
       <img src="${mamaLogo}" class="logo" alt="mama mboga's logo" />
-    </div>
+    </a>
     <ul class="nav-links">
       <li>
         <a href="./pages/auth.html">Login</a>
@@ -25,8 +25,6 @@ document.querySelector('#app').innerHTML = `
       </li>
     </ul>
   </nav>
-  <div>
-
   <div style="display:flex;">
     <input class="search-input" name="Search" type="search" placeholder="Search for a product..."/>
     <i class="fa fa-lock" style="font-size:40px; margin:0 20px;"></i>
