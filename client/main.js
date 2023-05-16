@@ -1,10 +1,33 @@
-import './style.css'
+import './styles/style.css'
+import './styles/responsive.css'
 import mamaLogo from '/image/logo.png'
 
 document.querySelector('#app').innerHTML = `
+  <nav>
+    <div>
+      <img src="${mamaLogo}" class="logo" alt="mama mboga's logo" />
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="./pages/auth.html">Login</a>
+      </li>
+      <li>
+        <a href="./pages/order.html">Order</a>
+      </li>
+      <li>
+        <a href="./pages/category.html">Categories</a>
+      </li>
+      <li>
+        <a href="./pages/payment.html">Payment</a>
+      </li>
+    </ul>
+  </nav>
   <div>
-    <img src="${mamaLogo}" class="logo" alt="Vite logo" />
-    <h1>Mama mboga!</h1>
-    <a href="./pages/auth.html" id="counter" type="button">Login</a>
+
+  <div style="display:flex;">
+    <input class="search-input" type="search" placeholder="Search for a product..."/>
+    <i class="fa fa-lock" style="font-size:40px; margin:0 10px;"></i>
+  </div>
+    <h2>Welcome to Mama mboga!</h2>
   </div>
 `
