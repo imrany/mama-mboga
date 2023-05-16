@@ -19,6 +19,9 @@ document.querySelector('#app').innerHTML = `
     <p class="read-the-docs">
       Click on the Vite logo to learn more
     </p>
+    <div class="card">
+      <a href="./pages/auth.html" id="counter" type="button">Login</a>
+    </div>
   </div>
 `
 
