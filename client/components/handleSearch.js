@@ -1,39 +1,29 @@
-const products=[
-    {
-      category:"Greens",
-      product_name:"Sukuma wiki",
-      price:20
-    },
-    {
-      category:"Greens",
-      product_name:"Spinach",
-      price:30
-    },
-    {
-      category:"Greens",
-      product_name:"Cabbage",
-      price:20
-    },
-    {
-      category:"Legumes",
-      product_name:"Beans",
-      price:60
-    },
-    {
-      category:"Legumes",
-      product_name:"Peas",
-      price:30
-    },
-    {
-      category:"Beverage",
-      product_name:"Coffee",
-      price:40
-    }
-]
-  
+import { products } from "../data"
 export const handleSearch=(element)=>{
     element.addEventListener("change",(e)=>{
-        const value=e.target.value
-        console.log(value)
+        let result=[]
+        document.querySelector(".products-window").innerHTML=""
+        const val=`${e.target.value}`
+        const value=val.slice(0,1).toUpperCase()
+        products.map(i=>{
+            if(i.category.includes(value)||i.product_name.includes(value)){
+                result.push(i)
+            }
+        })
+        console.log(result)
+        result.forEach((i,n)=>{
+            let li=`
+            <div class="products">
+              <a href="${n}" style="color:inherit;">
+                <div>
+                  <img class="image" src="${i.image_url}" alt="${i.product_name}"/>
+                  <p>Selling ${i.product_name} @ ksh${i.price}.00</p>
+                  <p>Category <span style="color:green;">${i.category}</span></p>
+                </div>
+              </a>
+            </div>
+            `
+            document.querySelector(".products-window").innerHTML+=li
+        })
     })
 }
