@@ -37,7 +37,7 @@ document.querySelector('#app').innerHTML = `
     </div>
   </div>
 `
-
+let cat=[]
 products.forEach((i,n)=>{
   let li=`
   <div class="products">
@@ -45,12 +45,42 @@ products.forEach((i,n)=>{
       <div>
         <img class="image" src="${i.image_url}" alt="${i.product_name}"/>
         <p>Selling ${i.product_name} @ ksh${i.price}.00</p>
-        <p>Category <span style="color:green;">${i.category}</span></p>
+        <p>Category  <span class="cat-${n}"></span></p>
       </div>
     </a>
   </div>
   `
+  cat.push({index:n,cat:i.category})
   document.querySelector(".products-window").innerHTML+=li
 })
 
+cat.forEach((item)=>{
+  switch (item.cat) {
+    case "Greens":
+      document.querySelector(`.cat-${item.index}`).innerHTML=`
+        <span style="color:green;">${item.cat}</span>
+      `
+      break;
+    case "Fruits":
+    document.querySelector(`.cat-${item.index}`).innerHTML=`
+      <span style="color:red;">${item.cat}</span>
+    `
+    break;
+    case "Legumes":
+    document.querySelector(`.cat-${item.index}`).innerHTML=`
+      <span style="color:brown;">${item.cat}</span>
+    `
+    break;
+    case "Beverage":
+    document.querySelector(`.cat-${item.index}`).innerHTML=`
+      <span style="color:gray;">${item.cat}</span>
+    `
+    break;
+    default:
+      document.querySelector(`.cat-${item.index}`).innerHTML=`
+      <span>${item.cat}</span>
+    `
+    break;
+  }
+})
 handleSearch(document.querySelector(".search-input"))
