@@ -1,6 +1,7 @@
-import './style.css'
+import './styles/style.css'
+import './styles/responsive.css'
 import javascriptLogo from './javascript.svg'
-import viteLogo from '/favicon.png'
+import viteLogo from '/image/logo.png'
 import { setupCounter } from './counter.js'
 
 document.querySelector('#app').innerHTML = `
