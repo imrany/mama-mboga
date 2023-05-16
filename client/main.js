@@ -1,42 +1,10 @@
 import './styles/style.css'
 import './styles/responsive.css'
 import mamaLogo from '/image/logo.png'
-import cabbage from '/image/cabbage.png'
 import { handleSearch } from './components/handleSearch'
+import { products } from './data'
 
-const products=[
-  {
-    category:"Greens",
-    product_name:"Sukuma wiki",
-    price:20
-  },
-  {
-    category:"Greens",
-    product_name:"Spinach",
-    price:30
-  },
-  {
-    category:"Greens",
-    product_name:"Cabbage",
-    price:20
-  },
-  {
-    category:"Legumes",
-    product_name:"Beans",
-    price:60
-  },
-  {
-    category:"Legumes",
-    product_name:"Peas",
-    price:30
-  },
-  {
-    category:"Beverage",
-    product_name:"Coffee",
-    price:40
-  }
-]
-
+window.scrollTo(0,0)
 document.querySelector('#app').innerHTML = `
   <nav>
     <div>
@@ -70,63 +38,19 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
-document.querySelector(".products-window").innerHTML=`
-<div class="products">
-  <div>
-    <img class="image" src="${cabbage}" alt="cabbage"/>
-    <p>Selling Cabbage @ ksh20.00</p>
-    <p>Category <span style="color:green;">Greens</span></p>
+products.forEach((i,n)=>{
+  let li=`
+  <div class="products">
+    <a href="${n}" style="color:inherit;">
+      <div>
+        <img class="image" src="${i.image_url}" alt="${i.product_name}"/>
+        <p>Selling ${i.product_name} @ ksh${i.price}.00</p>
+        <p>Category <span style="color:green;">${i.category}</span></p>
+      </div>
+    </a>
   </div>
-</div>
-<div class="products">
-  <div>
-    <img class="image" src="${cabbage}" alt="cabbage"/>
-    <p>Selling Cabbage @ ksh20.00</p>
-    <p>Category <span style="color:green;">Greens</span></p>
-  </div>
-</div>
-<div class="products">
-  <div>
-    <img class="image" src="${cabbage}" alt="cabbage"/>
-    <p>Selling Cabbage @ ksh20.00</p>
-    <p>Category <span style="color:green;">Greens</span></p>
-  </div>
-</div>
-<div class="products">
-  <div>
-    <img class="image" src="${cabbage}" alt="cabbage"/>
-    <p>Selling Cabbage @ ksh20.00</p>
-    <p>Category <span style="color:green;">Greens</span></p>
-  </div>
-</div>
+  `
+  document.querySelector(".products-window").innerHTML+=li
+})
 
-<div class="products">
-  <div>
-    <img class="image" src="${cabbage}" alt="cabbage"/>
-    <p>Selling Cabbage @ ksh20.00</p>
-    <p>Category <span style="color:green;">Greens</span></p>
-  </div>
-</div>
-<div class="products">
-  <div>
-    <img class="image" src="${cabbage}" alt="cabbage"/>
-    <p>Selling Cabbage @ ksh20.00</p>
-    <p>Category <span style="color:green;">Greens</span></p>
-  </div>
-</div>
-<div class="products">
-  <div>
-    <img class="image" src="${cabbage}" alt="cabbage"/>
-    <p>Selling Cabbage @ ksh20.00</p>
-    <p>Category <span style="color:green;">Greens</span></p>
-  </div>
-</div>
-<div class="products">
-  <div>
-    <img class="image" src="${cabbage}" alt="cabbage"/>
-    <p>Selling Cabbage @ ksh20.00</p>
-    <p>Category <span style="color:green;">Greens</span></p>
-  </div>
-</div>
-`
 handleSearch(document.querySelector(".search-input"))
