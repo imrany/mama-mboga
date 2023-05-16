@@ -5,12 +5,14 @@ import { handleLoginSubmit } from '../handleSubmit'
 import mamalogo from "/image/logo.png"
 
 document.getElementById("auth").innerHTML=`
+<a href="/index.html">
+    <img src="${mamalogo}" class="image" alt="Mama mboga's logo"/>
+</a>
 <div id="login">
     
 </div>
 `
 document.getElementById("login").innerHTML=`
-    <img src="${mamalogo}" class="image" alt="Mama mboga's logo"/>
     <h2>Login</h1>    
     <form class="login-form">
         <label>Enter Phone number</label>

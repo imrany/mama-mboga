@@ -1,9 +1,6 @@
-import mamalogo from "/image/logo.png"
-
 const showSignupPage=(element)=>{
     element.addEventListener("click",()=>{
         document.getElementById("login").innerHTML=`
-        <img src="${mamalogo}" class="image" alt="Mama mboga's logo"/>
         <h2>Create new account</h1>    
         <form class="login-form">
             <label>Enter Username</label>
