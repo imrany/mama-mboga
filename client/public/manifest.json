@@ -1,0 +1,10 @@
+{
+    "name":"Mama mboga's online market",
+    "short_name":"Mama mboga",
+    "display":"standalone",
+    "orientation":"portrait",
+    "description":"Get home groceries from your nearest mama mboga with easy",
+    "id":"/index.html",
+    "start_url":"/index.html",
+    "icons":[]
+}
