@@ -42,13 +42,13 @@ const products=[
     },
     {
         image_url:apple,
-        category:"Fruit",
+        category:"Fruits",
         product_name:"Apple",
         price:50
     },
     {
         image_url:mango,
-        category:"Fruit",
+        category:"Fruits",
         product_name:"Mango",
         price:50
     }
