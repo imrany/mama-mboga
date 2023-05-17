@@ -60,9 +60,31 @@ request.onsuccess = (event) => {
         console.log("idQuery",getIdQuery.result)
     }
 
+    //update
+    const spinach = orderStore.get(2);
+    spinach.onsuccess=()=>{
+        spinach.result.category = "Greens";
+        orderStore.put(spinach.result);
+    }
+
+    //delete
+    const deleteSpinach = orderStore.delete(2);
+    deleteSpinach.onsuccess=()=>{
+        console.log("Deleted",deleteSpinach.result);
+    };
+
+    //delete by key
+    // const spinachOrderKey = product_nameIndex.getKey(["Spinach"]);
+    // spinachOrderKey.onsuccess =()=>{
+    //     const deleteSpinach = orderStore.delete(spinachOrderKey.result);
+    //     deleteSpinach.onsuccess =()=>{
+    //         console.log("Spinach deleted");
+    //     };
+    // };
+
     //close the DB
     transaction.oncomplete=()=>{
-        db.closoe()
+        db.close()
     }
 };
   
