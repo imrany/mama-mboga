@@ -2,17 +2,15 @@ import { db } from "../indexedDB"
 
 const ordersArray=(element,orders)=>{
     element.addEventListener("click",()=>{
-      console.log(orders)
       const transaction=db.transaction("Orders","readwrite")
         const orderStore=transaction.objectStore("Orders")
         const add=orderStore.add(orders)
         add.onsuccess = (ev) => {
-            console.log('successfully added an object');
+            alert('Item was successfully added');
         };
         add.onerror = (err) => {
             console.log('error in request to add');
         };
-        alert("Item added")
     })
 }
 
@@ -20,17 +18,27 @@ const ordersArray=(element,orders)=>{
 const viewOrder=(element)=>{
     let items=localStorage.getItem("orders")
     element.addEventListener("click",()=>{
-        let li=`
-        <h1>Oder1</h1>
-        `
-        document.getElementById("app").innerHTML=`
-        <div>
-            <h2>Orders</h2>
-            <div class="order-list">
+        const transaction=db.transaction("Orders","readwrite")
+        const orderStore=transaction.objectStore("Orders")
+        const getItems=orderStore.getAll()
+        getItems.onsuccess = (ev) => {
+            console.log(getItems.result);
+            let li=`
+            <h1>Oder1</h1>
+            `
+            document.getElementById("app").innerHTML=`
+            <div>
+                <h2>Orders</h2>
+                <div class="order-list">
+                </div>
             </div>
-        </div>
-        `
-        document.querySelector(".order-list").innerHTML+=li
+            `
+            document.querySelector(".order-list").innerHTML+=li
+        };
+        getItems.onerror = (err) => {
+            console.log('error in request to add');
+        };
+        
     })
 }
 
