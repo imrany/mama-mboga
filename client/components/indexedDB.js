@@ -1,7 +1,18 @@
+const indexedDB =
+window.indexedDB ||
+window.mozIndexedDB ||
+window.webkitIndexedDB ||
+window.msIndexedDB ||
+window.shimIndexedDB;
+
+if (!indexedDB) {
+console.log("IndexedDB could not be found in this browser.");
+}
+
  // Let us open our database
- const dbName="OrdersDB"
- const request = window.indexedDB.open(dbName, 3);
- request.onerror = (event) => {
+const dbName="OrdersDB"
+const request = window.indexedDB.open(dbName, 3);
+request.onerror = (event) => {
     console.log(event.target.result)
 };
 
@@ -47,6 +58,11 @@ request.onsuccess = (event) => {
 
     getIdQuery.onsuccess=()=>{
         console.log("idQuery",getIdQuery.result)
+    }
+
+    //close the DB
+    transaction.oncomplete=()=>{
+        db.closoe()
     }
 };
   
