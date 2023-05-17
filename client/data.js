@@ -6,39 +6,21 @@ import mango from '/image/Mango-removebg-preview.png'
 const products=[
     {
       image_url:cabbage,
-      category:"Greens",
+      category:"Vegetables",
       product_name:"Sukuma wiki",
       price:20
     },
     {
       image_url:cabbage,
-      category:"Greens",
+      category:"Vegetables",
       product_name:"Spinach",
       price:30
     },
     {
       image_url:cabbage,
-      category:"Greens",
+      category:"Vegetables",
       product_name:"Cabbage",
       price:20
-    },
-    {
-      image_url:cabbage,
-      category:"Legumes",
-      product_name:"Beans",
-      price:60
-    },
-    {
-      image_url:cabbage,
-      category:"Legumes",
-      product_name:"Peas",
-      price:30
-    },
-    {
-      image_url:cabbage,
-      category:"Beverage",
-      product_name:"Coffee",
-      price:40
     },
     {
         image_url:apple,

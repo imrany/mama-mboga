@@ -3,6 +3,7 @@ import './styles/responsive.css'
 import mamaLogo from '/image/logo.png'
 import { handleSearch } from './components/handleSearch'
 import { products } from './data'
+import { closeCart, showCart } from './components/ui/cart'
 
 window.scrollTo(0,0)
 document.querySelector('#app').innerHTML = `
@@ -18,9 +19,6 @@ document.querySelector('#app').innerHTML = `
         <a href="./pages/order.html">Order</a>
       </li>
       <li>
-        <a href="./pages/category.html">Categories</a>
-      </li>
-      <li>
         <a href="./pages/payment.html">Payment</a>
       </li>
     </ul>
@@ -34,27 +32,31 @@ document.querySelector('#app').innerHTML = `
     <div class="products-window">
     </div>
   </div>
+
+  <div class="cart">
+   
+  </div>
 `
 let cat=[]
+let items={}
 products.forEach((i,n)=>{
   let li=`
   <div class="products">
-    <a href="${n}" style="color:inherit;">
-      <div>
-        <img class="image" src="${i.image_url}" alt="${i.product_name}"/>
-        <p>Selling ${i.product_name} @ ksh${i.price}.00</p>
-        <p>Category  <span class="cat-${n}"></span></p>
-      </div>
-    </a>
+    <div>
+      <img class="image" src="${i.image_url}" alt="${i.product_name}"/>
+      <p>Selling ${i.product_name} @ ksh${i.price}.00</p>
+      <p>Category  <span class="cat-${n}"></span></p>
+    </div>
   </div>
   `
+  items=i
   cat.push({index:n,cat:i.category})
   document.querySelector(".products-window").innerHTML+=li
 })
 
 cat.forEach((item)=>{
   switch (item.cat) {
-    case "Greens":
+    case "Vegetables":
       document.querySelector(`.cat-${item.index}`).innerHTML=`
         <span style="color:green;">${item.cat}</span>
       `
@@ -81,4 +83,7 @@ cat.forEach((item)=>{
     break;
   }
 })
+
+showCart(document.querySelector(".products"),items)
+closeCart(document.querySelector(".close-cart"))
 handleSearch(document.querySelector(".search-input"))

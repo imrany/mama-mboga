@@ -78,6 +78,7 @@ ul{
     border-radius: 10px;
     border: solid 1px white;
     transition: ease-in-out 500ms;
+    cursor: pointer;
 }
 .products:hover {
     border-color: #646cff;
@@ -152,4 +153,22 @@ button:focus,button:focus-visible {
     margin: 10px 0;
     padding: 10px;
     font-size: medium;
+}
+
+.cart{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index:100;
+    top:10vh; 
+    left: 25vw;
+    right: 25vw;
+}
+.cart .item{
+    background: #888;
+    border-radius: 20px;
+    width: 50vw;
+    padding-bottom: 20px;
+    /* color: white; */
 }
