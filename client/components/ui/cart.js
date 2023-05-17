@@ -13,6 +13,7 @@ const showCart=(element,items)=>{
             </div>
         </div>
         `
+        closeCart(document.querySelector(".close-cart"))
         console.log(items)
     })
 }
@@ -25,5 +26,4 @@ const closeCart=(element)=>{
 
 export {
     showCart,
-    closeCart
 }

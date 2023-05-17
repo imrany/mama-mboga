@@ -3,7 +3,7 @@ import './styles/responsive.css'
 import mamaLogo from '/image/logo.png'
 import { handleSearch } from './components/handleSearch'
 import { products } from './data'
-import { closeCart, showCart } from './components/ui/cart'
+import { showCart } from './components/ui/cart'
 
 window.scrollTo(0,0)
 document.querySelector('#app').innerHTML = `
@@ -85,5 +85,4 @@ cat.forEach((item)=>{
 })
 
 showCart(document.querySelector(".products"),items)
-closeCart(document.querySelector(".close-cart"))
 handleSearch(document.querySelector(".search-input"))
