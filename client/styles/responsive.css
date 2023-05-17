@@ -32,7 +32,20 @@
         padding: 10px 20px;
     }
     .cart{
-        top: 30vh;
+        top: 10vh;
+        left: 0;
+        right: 0;
+    }
+    .cart .item{
+        width: 80vw;
+        margin: 0 10vw;
+    }
+    .cart .item .cart-header{
+        font-size: 30px;
+        margin-left: -20px;
+    }
+    .cart .item .close-cart{
+        margin:-19px 20px 0 0 ;
     }
     
 }
