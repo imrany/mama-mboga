@@ -164,11 +164,13 @@ button:focus,button:focus-visible {
     top:10vh; 
     left: 25vw;
     right: 25vw;
+    bottom: 0;
 }
 .cart .item{
     background: #888;
     border-radius: 20px;
     width: 50vw;
     padding-bottom: 20px;
+    margin-bottom: 30vh;
     /* color: white; */
 }

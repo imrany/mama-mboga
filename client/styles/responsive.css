@@ -15,4 +15,28 @@
     .login-form{
         width: 100%;
     }
+
+    nav .nav-links{
+        display: none;
+    }
+    .lock-icon{
+        display: none;
+    }
+    .products-window{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .products{
+        width: 60vw;
+        padding: 10px 20px;
+    }
+    .cart{
+        top: 30vh;
+        /* left: 10vw;
+        right: 10vw; */
+    }
+    .cart .item{
+        /* width: 80vw; */
+    }
 }
