@@ -30,9 +30,9 @@ const handleLoginSubmit=(element)=>{
                 </div>
                </div>
             `
-            // setTimeout(()=>{
-            //     window.location.href="/index.html"
-            // },3000)
+            setTimeout(()=>{
+                window.location.href="/index.html"
+            },3000)
         } catch (error) {
             console.log(error.message)
         }
