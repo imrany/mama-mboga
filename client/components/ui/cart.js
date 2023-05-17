@@ -1,3 +1,6 @@
+import { ordersArray } from "./order"
+
+let orders=[];
 const showCart=(element,index,items)=>{
     element.addEventListener("click",()=>{
         items.map((i,n)=>{
@@ -11,13 +14,15 @@ const showCart=(element,index,items)=>{
                         <img src="${i.image_url}" class="image" alt="image"/>
                         <p style="font-size:20px;">Selling ${i.product_name} @ Ksh ${i.price}.00</p>
                         <div class="card">
-                        <button>Purchase item</button>
+                        <button class="add">Purchase item</button>
                     </div>
                 </div>
                 `
+                orders.push(i)
             }
         })
         closeCart(document.querySelector(".close-cart"))
+        ordersArray(document.querySelector(".add"),orders)
     })
 }
 
