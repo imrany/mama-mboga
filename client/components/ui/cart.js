@@ -18,7 +18,6 @@ const showCart=(element,index,items)=>{
             }
         })
         closeCart(document.querySelector(".close-cart"))
-        console.log(items)
     })
 }
 

@@ -1,4 +1,5 @@
 import { products } from "../data"
+import { showCart } from "./ui/cart"
 export const handleSearch=(element)=>{
     element.addEventListener("change",(e)=>{
         let result=[]
@@ -10,20 +11,21 @@ export const handleSearch=(element)=>{
                 result.push(i)
             }
         })
-        console.log(result)
         result.forEach((i,n)=>{
             let li=`
             <div class="products">
-              <a href="${n}" style="color:inherit;">
-                <div>
-                  <img class="image" src="${i.image_url}" alt="${i.product_name}"/>
-                  <p>Selling ${i.product_name} @ ksh${i.price}.00</p>
-                  <p>Category <span style="color:green;">${i.category}</span></p>
-                </div>
-              </a>
+              <div>
+                <img class="image" src="${i.image_url}" alt="${i.product_name}"/>
+                <p>Selling ${i.product_name} @ ksh${i.price}.00</p>
+                <p>Category <span style="color:green;">${i.category}</span></p>
+              </div>
             </div>
             `
             document.querySelector(".products-window").innerHTML+=li
+        })
+
+        document.querySelectorAll(".products").forEach((element,index)=>{
+          showCart(element,index,result)
         })
     })
 }
