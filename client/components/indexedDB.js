@@ -53,7 +53,8 @@ request.onsuccess = (event) => {
     })
 
     //query
-    const getIdQuery=orderStore.get(2)
+    // const getIdQuery=orderStore.get(2)
+    const getIdQuery=orderStore.getAll()
     const getPriceQuery=priceIndex.getAll([20])
 
     getIdQuery.onsuccess=()=>{
@@ -61,16 +62,16 @@ request.onsuccess = (event) => {
     }
 
     //update
-    const spinach = orderStore.get(2);
-    spinach.onsuccess=()=>{
-        spinach.result.category = "Greens";
-        orderStore.put(spinach.result);
-    }
+    // const spinach = orderStore.get(2);
+    // spinach.onsuccess=()=>{
+    //     spinach.result.category = "Greens";
+    //     orderStore.put(spinach.result);
+    // }
 
     //delete
     const deleteSpinach = orderStore.delete(2);
     deleteSpinach.onsuccess=()=>{
-        console.log("Deleted",deleteSpinach.result);
+        console.log("Deleted");
     };
 
     //delete by key
