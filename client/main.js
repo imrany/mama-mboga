@@ -27,7 +27,7 @@ document.querySelector('#app').innerHTML = `
     <input class="search-input" name="Search" type="search" placeholder="Search for a product..."/>
     <i class="fa fa-lock lock-icon" style="font-size:40px; margin:0 20px;"></i>
   </div>
-    <h2>Welcome to Mama mboga!</h2>
+    <h2>Welcome to Mama's market!</h2>
 
     <div class="products-window">
     </div>
