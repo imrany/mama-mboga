@@ -1,65 +1,52 @@
  // Let us open our database
- const dbName="Orders"
- // This is what our customer data looks like.
-const customerData = [
-    { ssn: "444-44-4444", name: "Bill", age: 35, email: "bill@company.com" },
-    { ssn: "555-55-5555", name: "Donna", age: 32, email: "donna@home.org" },
-  ];
-  
+ const dbName="OrdersDB"
  const request = window.indexedDB.open(dbName, 3);
  request.onerror = (event) => {
-    // Do something with request.errorCode!
     console.log(event.target.result)
 };
 
 request.onupgradeneeded = (event) => {
     const db = event.target.result;
+    const objectStore = db.createObjectStore("Orders", { keyPath: "id" });
   
-    // Create an objectStore to hold information about our customers. We're
-    // going to use "ssn" as our key path because it's guaranteed to be
-    // unique - or at least that's what I was told during the kickoff meeting.
-    const objectStore = db.createObjectStore("customers", { keyPath: "ssn" });
-  
-    // Create an index to search customers by name. We may have duplicates
-    // so we can't use a unique index.
-    objectStore.createIndex("name", "name", { unique: false });
-  
-    // Create an index to search customers by email. We want to ensure that
-    // no two customers have the same email, so use a unique index.
-    objectStore.createIndex("email", "email", { unique: true });
-  
-    // Use transaction oncomplete to make sure the objectStore creation is
-    // finished before adding data into it.
-    objectStore.transaction.oncomplete = (event) => {
-      // Store values in the newly created objectStore.
-      const customerObjectStore = db
-        .transaction("customers", "readwrite")
-        .objectStore("customers");
-      customerData.forEach((customer) => {
-        const request=customerObjectStore.add(customer);
-        request.onsuccess = (event) => {
-            console.log(event.target.result)
-            // event.target.result === customer.ssn;
-          };
-
-          //retrievind data
-        const transaction = db.transaction("customers").objectStore("customers");
-        const request1 = transaction.get("444-44-4444");
-        request1.onerror = (event) => {
-            // Handle errors!
-        };
-        request1.onsuccess = (event) => {
-            // Do something with the request.result!
-            console.log(`Name for SSN 444-44-4444 is ${request.result.name}`);
-        };
-      });
-
-
-
-    };
+    objectStore.createIndex("category", ["category"], { unique: false });
+    objectStore.createIndex("product_name", ["product_name"], { unique: false });
+    objectStore.createIndex("image_url", ["image_url"], { unique: true });
+    objectStore.createIndex("price", ["price"], { unique: false });
 };
   
-// request.onsuccess = (event) => {
-//     // Do something with request.result!
-// };
+request.onsuccess = (event) => {
+    const db = event.target.result;
+    const transaction=db.transaction("Orders","readwrite")
+    const orderStore=transaction.objectStore("Orders")
+    const categoryIndex=orderStore.index("category")
+    const product_nameIndex=orderStore.index("product_name")
+    const image_urlIndex=orderStore.index("image_url")
+    const priceIndex=orderStore.index("price")
+
+
+    //add data to our DB
+    orderStore.put({
+        id:1,
+        image_url:"sukuma",
+        category:"Vegetables",
+        product_name:"Sukuma wiki",
+        price:20
+    })
+    orderStore.put({
+        id:2,
+        image_url:"spinach",
+        category:"Vegetables",
+        product_name:"Spinach",
+        price:30
+    })
+
+    //query
+    const getIdQuery=orderStore.get(2)
+    const getPriceQuery=priceIndex.getAll([20])
+
+    getIdQuery.onsuccess=()=>{
+        console.log("idQuery",getIdQuery.result)
+    }
+};
   
