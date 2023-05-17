@@ -38,7 +38,7 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 let cat=[]
-let items={}
+let items=products
 products.forEach((i,n)=>{
   let li=`
   <div class="products">
@@ -49,7 +49,6 @@ products.forEach((i,n)=>{
     </div>
   </div>
   `
-  items=i
   cat.push({index:n,cat:i.category})
   document.querySelector(".products-window").innerHTML+=li
 })
@@ -84,7 +83,7 @@ cat.forEach((item)=>{
   }
 })
 
-document.querySelectorAll(".products").forEach(element=>{
-  showCart(element,items)
+document.querySelectorAll(".products").forEach((element,index)=>{
+  showCart(element,index,items)
 })
 handleSearch(document.querySelector(".search-input"))
