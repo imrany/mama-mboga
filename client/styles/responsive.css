@@ -49,3 +49,10 @@
     }
     
 }
+
+@supports(backdrop-filter: blur(4rem)){
+    .cart .item{
+        background: hsl(0 0% 100% / 0.5);
+        backdrop-filter: blur(4rem);
+    }
+}

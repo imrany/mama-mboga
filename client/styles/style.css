@@ -171,6 +171,7 @@ button:focus,button:focus-visible {
     width: 50vw;
     padding-bottom: 20px;
     margin-bottom: 30vh;
+    border: 1px solid #cccaca;
 }
 .cart .item .cart-header{
     font-size:40px; 
