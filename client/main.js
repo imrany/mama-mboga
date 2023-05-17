@@ -4,6 +4,7 @@ import mamaLogo from '/image/logo.png'
 import { handleSearch } from './components/handleSearch'
 import { products } from './data'
 import { showCart } from './components/ui/cart'
+import { viewOrder } from './components/ui/order'
 
 window.scrollTo(0,0)
 document.querySelector('#app').innerHTML = `
@@ -87,4 +88,5 @@ document.querySelectorAll(".products").forEach((element,index)=>{
   showCart(element,index,items)
 })
 
+viewOrder(document.querySelector(".view-order"))
 handleSearch(document.querySelector(".search-input"))

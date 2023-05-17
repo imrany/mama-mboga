@@ -1,5 +1,21 @@
-const viewOrder=(element,orders)=>{
-    localStorage.setItem("orders",orders)
+const ordersArray=(element,orders)=>{
+    element.addEventListener("click",()=>{
+        orders.map((i,n)=>{
+            const data={
+                image_url:i.image_url,
+                category:i.category,
+                product_name:i.product_name,
+                price:i.price
+            }
+          localStorage.setItem(`order-${n}`,data)
+        })
+        alert("Item added")
+    })
+}
+
+
+const viewOrder=(element)=>{
+    let items=localStorage.getItem("orders")
     element.addEventListener("click",()=>{
         let li=`
         <h1>Oder1</h1>
@@ -13,16 +29,10 @@ const viewOrder=(element,orders)=>{
         `
         document.querySelector(".order-list").innerHTML+=li
     })
+   console.log(...items.category)
 }
-
-const ordersArray=(viewOrderElement,element,orders)=>{
-    element.addEventListener("click",()=>{
-        alert("Item added")
-        viewOrder(viewOrderElement,orders)
-    })
-}
-
 
 export {
-    ordersArray
+    ordersArray,
+    viewOrder
 }

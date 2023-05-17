@@ -22,7 +22,7 @@ const showCart=(element,index,items)=>{
             }
         })
         closeCart(document.querySelector(".close-cart"))
-        ordersArray(document.querySelector(".view-order"),document.querySelector(".add"),orders)
+        ordersArray(document.querySelector(".add"),orders)
     })
 }
 
