@@ -1,14 +1,17 @@
+import { db } from "../indexedDB"
+
 const ordersArray=(element,orders)=>{
     element.addEventListener("click",()=>{
-        orders.map((i,n)=>{
-            const data={
-                image_url:i.image_url,
-                category:i.category,
-                product_name:i.product_name,
-                price:i.price
-            }
-          localStorage.setItem(`order-${n}`,data)
-        })
+      console.log(orders)
+      const transaction=db.transaction("Orders","readwrite")
+        const orderStore=transaction.objectStore("Orders")
+        const add=orderStore.add(orders)
+        add.onsuccess = (ev) => {
+            console.log('successfully added an object');
+        };
+        add.onerror = (err) => {
+            console.log('error in request to add');
+        };
         alert("Item added")
     })
 }
@@ -29,10 +32,9 @@ const viewOrder=(element)=>{
         `
         document.querySelector(".order-list").innerHTML+=li
     })
-   console.log(...items.category)
 }
 
 export {
     ordersArray,
-    viewOrder
+    viewOrder,
 }

@@ -18,7 +18,7 @@ const showCart=(element,index,items)=>{
                     </div>
                 </div>
                 `
-                orders.push(i)
+                orders=i
             }
         })
         closeCart(document.querySelector(".close-cart"))

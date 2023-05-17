@@ -25,67 +25,79 @@ request.onupgradeneeded = (event) => {
     objectStore.createIndex("image_url", ["image_url"], { unique: true });
     objectStore.createIndex("price", ["price"], { unique: false });
 };
+
+let db
+function getDB(IDB){
+    db=IDB
+}
+request.onsuccess=(event)=>{
+    const db=event.target.result;
+    getDB(db)
+}
   
-request.onsuccess = (event) => {
-    const db = event.target.result;
-    const transaction=db.transaction("Orders","readwrite")
-    const orderStore=transaction.objectStore("Orders")
-    const categoryIndex=orderStore.index("category")
-    const product_nameIndex=orderStore.index("product_name")
-    const image_urlIndex=orderStore.index("image_url")
-    const priceIndex=orderStore.index("price")
+// request.onsuccess = (event) => {
+//     const db = event.target.result;
+//     const transaction=db.transaction("Orders","readwrite")
+//     const orderStore=transaction.objectStore("Orders")
+//     const categoryIndex=orderStore.index("category")
+//     const product_nameIndex=orderStore.index("product_name")
+//     const image_urlIndex=orderStore.index("image_url")
+//     const priceIndex=orderStore.index("price")
 
 
-    //add data to our DB
-    orderStore.put({
-        id:1,
-        image_url:"sukuma",
-        category:"Vegetables",
-        product_name:"Sukuma wiki",
-        price:20
-    })
-    orderStore.put({
-        id:2,
-        image_url:"spinach",
-        category:"Vegetables",
-        product_name:"Spinach",
-        price:30
-    })
+//     //add data to our DB
+//     // orderStore.put({
+//     //     id:1,
+//     //     image_url:"sukuma",
+//     //     category:"Vegetables",
+//     //     product_name:"Sukuma wiki",
+//     //     price:20
+//     // })
+//     // orderStore.put({
+//     //     id:2,
+//     //     image_url:"spinach",
+//     //     category:"Vegetables",
+//     //     product_name:"Spinach",
+//     //     price:30
+//     // })
 
-    //query
-    // const getIdQuery=orderStore.get(2)
-    const getIdQuery=orderStore.getAll()
-    const getPriceQuery=priceIndex.getAll([20])
+//     //query
+//     // const getIdQuery=orderStore.get(2)
+//     // const getIdQuery=orderStore.getAll()
+//     // const getPriceQuery=priceIndex.getAll([20])
 
-    getIdQuery.onsuccess=()=>{
-        console.log("idQuery",getIdQuery.result)
-    }
+//     // getIdQuery.onsuccess=()=>{
+//     //     console.log("idQuery",getIdQuery.result)
+//     // }
 
-    //update
-    // const spinach = orderStore.get(2);
-    // spinach.onsuccess=()=>{
-    //     spinach.result.category = "Greens";
-    //     orderStore.put(spinach.result);
-    // }
+//     //update
+//     // const spinach = orderStore.get(2);
+//     // spinach.onsuccess=()=>{
+//     //     spinach.result.category = "Greens";
+//     //     orderStore.put(spinach.result);
+//     // }
 
-    //delete
-    const deleteSpinach = orderStore.delete(2);
-    deleteSpinach.onsuccess=()=>{
-        console.log("Deleted");
-    };
+//     //delete
+//     // const deleteSpinach = orderStore.delete(2);
+//     // deleteSpinach.onsuccess=()=>{
+//     //     console.log("Deleted");
+//     // };
 
-    //delete by key
-    // const spinachOrderKey = product_nameIndex.getKey(["Spinach"]);
-    // spinachOrderKey.onsuccess =()=>{
-    //     const deleteSpinach = orderStore.delete(spinachOrderKey.result);
-    //     deleteSpinach.onsuccess =()=>{
-    //         console.log("Spinach deleted");
-    //     };
-    // };
+//     //delete by key
+//     // const spinachOrderKey = product_nameIndex.getKey(["Spinach"]);
+//     // spinachOrderKey.onsuccess =()=>{
+//     //     const deleteSpinach = orderStore.delete(spinachOrderKey.result);
+//     //     deleteSpinach.onsuccess =()=>{
+//     //         console.log("Spinach deleted");
+//     //     };
+//     // };
 
-    //close the DB
-    transaction.oncomplete=()=>{
-        db.close()
-    }
-};
-  
+//     //close the DB
+//     transaction.oncomplete=()=>{
+//         db.close()
+//     }
+// };
+
+export{
+   db,
+}
