@@ -10,16 +10,14 @@ const viewOrder=(element,orders)=>{
     })
 }
 
-const ordersArray=(element,orders)=>{
+const ordersArray=(viewOrderElement,element,orders)=>{
     element.addEventListener("click",()=>{
         alert("Item added")
-        viewOrder(orders)
-        console.log(orders)
+        viewOrder(viewOrderElement,orders)
     })
 }
 
 
 export {
-    viewOrder,
     ordersArray
 }
