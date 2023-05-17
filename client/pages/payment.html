@@ -11,7 +11,22 @@
     <title>Mama's market | Payment</title>
   </head>
   <body>
-    <div id="payment"></div>
+    <div id="payment">
+      <p>Payments page</p>
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" required><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="payment">Payment Method:</label>
+      <select id="payment" name="payment">
+        <option value="cash on Delivery">Cash</option>
+        <option value="Mpesa">Mpesa</option>
+      </select><br><br>
+
+<input type="submit" value="Place Order">
+    </div>
     <script type="module">
         import '../style.css'
         import '../styles/responsive.css'

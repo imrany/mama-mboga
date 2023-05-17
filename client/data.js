@@ -33,6 +33,12 @@ const products=[
         category:"Fruits",
         product_name:"Mango",
         price:50
+    },
+    {
+      image_url:mango,
+      category:"Fruits",
+      product_name:"Passion",
+      price:30
     }
   ]
 
