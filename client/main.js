@@ -84,5 +84,7 @@ cat.forEach((item)=>{
   }
 })
 
-showCart(document.querySelector(".products"),items)
+document.querySelectorAll(".products").forEach(element=>{
+  showCart(element,items)
+})
 handleSearch(document.querySelector(".search-input"))
