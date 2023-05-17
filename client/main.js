@@ -4,6 +4,7 @@ import mamaLogo from '/image/logo.png'
 import { handleSearch } from './components/handleSearch'
 import { products } from './data'
 import { showCart } from './components/ui/cart'
+import { viewOrder } from './components/ui/order'
 
 window.scrollTo(0,0)
 document.querySelector('#app').innerHTML = `
@@ -15,8 +16,8 @@ document.querySelector('#app').innerHTML = `
       <li>
         <a href="./pages/auth.html">Login</a>
       </li>
-      <li>
-        <a href="./pages/order.html">Order</a>
+      <li class="view-order" style="cursor:pointer;">
+        Order
       </li>
       <li>
         <a href="./pages/payment.html">Payment</a>
@@ -86,4 +87,6 @@ cat.forEach((item)=>{
 document.querySelectorAll(".products").forEach((element,index)=>{
   showCart(element,index,items)
 })
+
+viewOrder(document.querySelector(".view-order"))
 handleSearch(document.querySelector(".search-input"))
