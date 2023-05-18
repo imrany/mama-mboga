@@ -17,8 +17,7 @@ const ordersArray=(element,orders)=>{
     })
 }
 
-let order_items=""
-let items
+let order_items
 const viewOrder=(element)=>{
     element.addEventListener("click",()=>{
         preloader()
@@ -31,6 +30,7 @@ const viewOrder=(element)=>{
                 <h2>Orders</h2>
                 <div class="order-list">
                 </div>
+                <div class="payment"></div>
                 <a href="/index.html" class="card">
                     <button>Back Home</button>
                 </a>
@@ -68,8 +68,9 @@ const viewOrder=(element)=>{
                         `
                     }
                     document.querySelector(".order-list").innerHTML+=li
-                    items=i
-                    showPaymentModal(document.querySelector(".order-item"),items)
+                    document.querySelectorAll(".order-item").forEach((element,index)=>{
+                        showPaymentModal(element,order_items,index)
+                    })
                 });
             }
         };

@@ -34,8 +34,6 @@ document.querySelector('#app').innerHTML = `
   <div class="cart">
    
   </div>
-
-  <div class="payment"></div>
 `
 let cat=[]
 let items=products
