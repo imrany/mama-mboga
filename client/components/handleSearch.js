@@ -1,7 +1,7 @@
 import { products } from "../data"
 import { showCart } from "./ui/cart"
 export const handleSearch=(element)=>{
-    element.addEventListener("change",(e)=>{
+    element.addEventListener("keypress",(e)=>{
         let result=[]
         document.querySelector(".products-window").innerHTML=""
         const val=`${e.target.value}`
