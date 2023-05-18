@@ -18,6 +18,7 @@ const showPaymentModal=(element,items)=>{
                 orders=i
             }
         })
+       alert("pay")
         closePaymentModal(document.querySelector(".close-payment"))
     })
 }
