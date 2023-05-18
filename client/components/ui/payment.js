@@ -1,3 +1,4 @@
+import { mpesaPayment } from "../mpesa"
 import { preloader } from "../preloader"
 import { OrderContent } from "./order"
 
@@ -21,6 +22,13 @@ const showPaymentModal=(element,items,index)=>{
             }
             document.querySelectorAll(".close-payment").forEach(element=>{
                 closePaymentModal(element)
+            })
+            document.querySelectorAll(".mpesa").forEach(element=>{
+                if(i.payment===true){
+                    mpesaPayment.error(element,i.id)
+                }else if(i.payment===false){
+                    mpesaPayment.success(element,i.id)
+                }
             })
         })
     })
