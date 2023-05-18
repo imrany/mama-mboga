@@ -18,15 +18,16 @@ const ordersArray=(element,orders)=>{
 const viewOrder=(element)=>{
     let items=localStorage.getItem("orders")
     element.addEventListener("click",()=>{
+        window.location.href="/pages/order.html"
         const transaction=db.transaction("Orders","readwrite")
         const orderStore=transaction.objectStore("Orders")
         const getItems=orderStore.getAll()
         getItems.onsuccess = (ev) => {
             console.log(getItems.result);
             let li=`
-            <h1>Oder1</h1>
+            <h1>order</h1>
             `
-            document.getElementById("app").innerHTML=`
+            document.getElementById("order").innerHTML=`
             <div>
                 <h2>Orders</h2>
                 <div class="order-list">
@@ -37,6 +38,7 @@ const viewOrder=(element)=>{
         };
         getItems.onerror = (err) => {
             console.log('error in request to add');
+            window.location.href="/index.html"
         };
         
     })
