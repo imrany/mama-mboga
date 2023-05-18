@@ -12,7 +12,7 @@ const ordersArray=(element,orders)=>{
             document.querySelector(".cart").innerHTML=""
         };
         add.onerror = (err) => {
-            console.log('error in request to add');
+           alert('This item exist, add another item!');
         };
     })
 }
