@@ -1,3 +1,6 @@
+import { preloader } from "../preloader"
+import { OrderContent } from "./order"
+
 const showPaymentModal=(element,items,index)=>{
     element.addEventListener("click",()=>{
         items.map((i,n)=>{
@@ -29,7 +32,19 @@ const closePaymentModal=(element)=>{
     })
 }
 
+const viewPaymentFromNavBar={
+    open:(element)=>{
+        element.addEventListener("click",()=>{
+            const con=window.confirm(`Navigate to Orders to pay for your orders! \n Would you like to view your orders and pay?`)
+            if(con){
+                preloader()
+                OrderContent()
+            }
+        })
+    }
+}
 export{
     showPaymentModal,
     closePaymentModal,
+    viewPaymentFromNavBar,
 }

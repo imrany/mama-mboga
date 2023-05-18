@@ -5,6 +5,7 @@ import { handleSearch } from './components/handleSearch'
 import { products } from './data'
 import { showCart } from './components/ui/cart'
 import { viewOrder } from './components/ui/order'
+import { viewPaymentFromNavBar } from './components/ui/payment'
 
 window.scrollTo(0,0)
 document.querySelector('#app').innerHTML = `
@@ -17,7 +18,10 @@ document.querySelector('#app').innerHTML = `
         <a href="./pages/auth.html">Login</a>
       </li>
       <li class="view-order" style="cursor:pointer;">
-        Order
+        Orders
+      </li>
+      <li class="view-payment" style="cursor:pointer;">
+        Payment
       </li>
     </ul>
   </nav>
@@ -87,3 +91,4 @@ document.querySelectorAll(".products").forEach((element,index)=>{
 
 viewOrder(document.querySelector(".view-order"))
 handleSearch(document.querySelector(".search-input"))
+viewPaymentFromNavBar.open(document.querySelector(".view-payment"))
