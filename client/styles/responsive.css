@@ -22,7 +22,7 @@
     .lock-icon{
         display: none;
     }
-    .products-window{
+    .products-window,.order-list{
         display: flex;
         flex-direction: column;
         align-items: center;

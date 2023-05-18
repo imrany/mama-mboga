@@ -65,7 +65,7 @@ ul{
 .search-input::placeholder{
     color: #646cffaa;
 }
-.products-window{
+.products-window,.order-list{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
