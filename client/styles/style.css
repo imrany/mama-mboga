@@ -173,12 +173,12 @@ button:focus,button:focus-visible {
     margin-bottom: 30vh;
     border: 1px solid #cccaca;
 }
-.cart .item .cart-header{
+.cart .item .cart-header,.payment .item .cart-header{
     font-size:40px; 
     font-weight:600; 
     margin-bottom:-20px;
 }
-.cart .item .close-cart{
+.cart .item .close-cart, .payment .item .close-payment{
     cursor:pointer; 
     font-size:30px; 
     float:right; 

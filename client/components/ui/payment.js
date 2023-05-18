@@ -1,7 +1,6 @@
 const showPaymentModal=(element,items,index)=>{
     element.addEventListener("click",()=>{
         items.map((i,n)=>{
-            // const index=
             if(n===index){
                 document.querySelector(".payment").innerHTML=`
                 <div class="item">
