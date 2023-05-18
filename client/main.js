@@ -19,9 +19,6 @@ document.querySelector('#app').innerHTML = `
       <li class="view-order" style="cursor:pointer;">
         Order
       </li>
-      <li>
-        <a href="./pages/payment.html">Payment</a>
-      </li>
     </ul>
   </nav>
   <div style="display:flex;">
@@ -37,6 +34,8 @@ document.querySelector('#app').innerHTML = `
   <div class="cart">
    
   </div>
+
+  <div class="payment"></div>
 `
 let cat=[]
 let items=products

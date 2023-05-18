@@ -27,7 +27,7 @@
         flex-direction: column;
         align-items: center;
     }
-    .products{
+    .products,.order-item{
         width: 60vw;
         padding: 10px 20px;
     }

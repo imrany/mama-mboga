@@ -71,7 +71,7 @@ ul{
     gap: 20px;
     margin-bottom: 100px;
 }
-.products{
+.products,.order-item{
     background: #f2f2f2;
     width: fit-content;
     padding: 10px 20px;
@@ -80,7 +80,7 @@ ul{
     transition: ease-in-out 500ms;
     cursor: pointer;
 }
-.products:hover {
+.products:hover,.order-item:hover{
     border-color: #646cff;
 }
 
@@ -155,7 +155,7 @@ button:focus,button:focus-visible {
     font-size: medium;
 }
 
-.cart{
+.cart,.payment{
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -165,7 +165,7 @@ button:focus,button:focus-visible {
     left: 25vw;
     right: 25vw;
 }
-.cart .item{
+.cart .item, .payment .item{
     background: #888;
     border-radius: 20px;
     width: 50vw;

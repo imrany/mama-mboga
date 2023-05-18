@@ -1,4 +1,5 @@
 import { db } from "../indexedDB"
+import { showPaymentModal } from "./payment"
 
 const ordersArray=(element,orders)=>{
     element.addEventListener("click",()=>{
@@ -14,7 +15,7 @@ const ordersArray=(element,orders)=>{
     })
 }
 
-
+let items
 const viewOrder=(element)=>{
     element.addEventListener("click",()=>{
         const transaction=db.transaction("Orders","readwrite")
@@ -28,11 +29,10 @@ const viewOrder=(element)=>{
                 </div>
             </div>
             `
-            console.log(getItems.result);
             const order_items=getItems.result
             order_items.forEach(i => {
                 let li=`
-                <div key=${i.id} class="products">
+                <div key=${i.id} class="order-item">
                     <div>
                         <img class="image" src="${i.image_url}" alt="${i.product_name}"/>
                         <p>Selling ${i.product_name} @ ksh${i.price}.00</p>
@@ -41,6 +41,8 @@ const viewOrder=(element)=>{
                 </div>
                 `
                 document.querySelector(".order-list").innerHTML+=li
+                items=i
+                showPaymentModal(document.querySelector(".order-item"),items)
             });
         };
         getItems.onerror = (err) => {
