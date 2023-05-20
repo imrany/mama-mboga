@@ -9,26 +9,32 @@ import { viewPaymentFromNavBar } from './components/ui/payment'
 
 window.scrollTo(0,0)
 document.querySelector('#app').innerHTML = `
+<div class="top"></div>
   <nav>
     <a href="/index.html">
       <img src="${mamaLogo}" class="logo" alt="mama mboga's logo" />
     </a>
+    <div style="display:flex;">
+      <input class="search-input" name="Search" type="search" placeholder="Search for a product..."/>
+    </div>
     <ul class="nav-links">
       <li>
-        <a href="./pages/auth.html">Login</a>
+        <a href="./pages/auth.html">
+        <span class="material-icons">person_outline</span>
+          Login
+        </a>
       </li>
       <li class="view-order" style="cursor:pointer;">
-        Orders
+        <p><span class="material-icons">shopping_cart_outline</span>
+        Orders</p>
       </li>
       <li class="view-payment" style="cursor:pointer;">
-        Payment
+        <p><span class="material-icons">payment_outline</span>
+        Payment</p>
       </li>
     </ul>
   </nav>
-  <div style="display:flex;">
-    <input class="search-input" name="Search" type="search" placeholder="Search for a product..."/>
-    <i class="fa fa- lock-icon" style="font-size:40px; margin:0 20px;"></i>
-  </div>
+  
     <h2>Welcome to Mama's market!</h2>
 
     <div class="products-window">
