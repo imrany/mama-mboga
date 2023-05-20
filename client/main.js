@@ -9,7 +9,9 @@ import { viewPaymentFromNavBar } from './components/ui/payment'
 
 window.scrollTo(0,0)
 document.querySelector('#app').innerHTML = `
-<div class="top"></div>
+<div class="top">
+  <marquee behavior="smooth" direction="left">GET AFFORDABLE GROCCERY AT KSH 200</marquee>
+</div>
   <nav>
     <a href="/index.html">
       <img src="${mamaLogo}" class="logo" alt="mama mboga's logo" />
@@ -26,7 +28,7 @@ document.querySelector('#app').innerHTML = `
       </li>
       <li class="view-order" style="cursor:pointer;">
         <p><span class="material-icons">shopping_cart_outline</span>
-        Orders</p>
+        My Cart</p>
       </li>
       <li class="view-payment" style="cursor:pointer;">
         <p><span class="material-icons">payment_outline</span>
@@ -35,16 +37,49 @@ document.querySelector('#app').innerHTML = `
     </ul>
   </nav>
   
-    <h2>Welcome to Mama's market!</h2>
+  <div class="cat-section">
+      <select class="select-category" name="category">
+      <option disabled>All Categories</option>
+        <option value="1">Fruits</option>
+        <option value="2">Vegetable</option>
+      </select>
+  </div>
 
-    <div class="products-window">
+  <div class="hero-section">
+    <h2>Have Fresh Groceries Delivered</h2>
+    <h2>To Your Home At Affordable Prices</h2><br/>
+    <h3 style="color:red;">Fresh Wholesome Fruits & Vegetables</h2><br/>
+    <p style="color:orange;">Fresh Farm Produce</p>
+  </div>
+    
+  <div class="about-section">
+    <div>
+      <span class="material-icons" style="font-size:60px;">shopping_cart_outline</span>
+      <h3>Order</h3>
+      <p>Order an item</p>
     </div>
-  </div>
 
-  <div class="cart">
-   
+    <div>
+      <span class="material-icons" style="font-size:60px;">payment</span>
+      <h3>Pay</h3>
+      <p>Pay for the item</p>
+    </div>
+
+    <div>
+      <span class="material-icons" style="font-size:60px;">local_shipping</span>
+      <h3>Delivery</h3>
+      <p>Same Day Delivery</p>
+    </div>
+
   </div>
-`
+  
+  </div>
+  `
+//   <div class="products-window">
+//   </div>
+// </div>
+
+// <div class="cart">
 let cat=[]
 let items=products
 products.forEach((i,n)=>{
