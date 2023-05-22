@@ -13,7 +13,7 @@ const showCart=(element,index,items)=>{
                         <i class="fa fa-close close-cart" style="font-size:30px; margin-top:-1px; cursor:pointer;"></i>
                     </div>
                     <img src="${i.image_url}" class="image" alt="image"/><br/>
-                    <p style="font-size:25px;">Selling ${i.product_name} @ Ksh ${i.price}.00</p><br/>
+                    <p style="font-size:25px;">${i.product_name} @ Ksh ${i.price}.00</p><br/>
                     <button class="add" style="display:flex;">
                         <i class="material-icons" style="font-size:18px; margin-right:5px;">shopping_cart</i> <span>  Add to cart</span>
                     </button>

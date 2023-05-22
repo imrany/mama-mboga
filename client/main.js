@@ -4,7 +4,7 @@ import mamaLogo from '/image/logo.png'
 import { handleSearch, handleSelect } from './components/handleSearch'
 import { products } from './data'
 import { showCart } from './components/ui/cart'
-import { viewOrder } from './components/ui/order'
+import { OrderContent, viewOrder } from './components/ui/order'
 import { viewPaymentFromNavBar } from './components/ui/payment'
 
 import grapes from "/image/grapes.jpg"
@@ -89,7 +89,7 @@ document.querySelector('#app').innerHTML = `
       <h1>Quick Links</h1><br/><br/>
       <a href="/pages/auth.html">Login</a><br/><br/>
       <a href="#category">Categories</a><br/><br/>
-      <a href="#">My Cart</a>
+      <div class="view-cat" style="cursor:pointer; font-weight:600;">My Cart</div>
     </div>
   </footer>
   <div class="copy-write">&copy; 2023</div>
@@ -152,3 +152,4 @@ viewOrder(document.querySelector(".view-order"))
 handleSearch(document.querySelector(".search-input"))
 viewPaymentFromNavBar.open(document.querySelector(".view-payment"))
 handleSelect(document.querySelector(".select-category"))
+viewOrder(document.querySelector(".view-cat"))

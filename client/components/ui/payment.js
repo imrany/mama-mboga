@@ -6,17 +6,19 @@ const showPaymentModal=(element,items,index)=>{
     element.addEventListener("click",()=>{
         items.map((i,n)=>{
             if(n===index){
+                document.querySelector(".payment").style.display="block"
                 document.querySelector(".payment").innerHTML=`
-                <div class="item">
-                    <div>
+                <div class="cart-item">
+                    <div class="header">
                         <p class="cart-header">Payment</p>
-                        <i class="fa fa-close close-payment"></i>
+                        <i class="fa fa-close close-payment" style="font-size:30px; margin-top:3px; cursor:pointer;"></i>
                     </div>
-                        <img src="${i.image_url}" class="image" alt="image"/>
-                        <p style="font-size:20px;">Selling ${i.product_name} @ Ksh ${i.price}.00</p>
-                        <div class="card">
-                        <button class="mpesa" style="background:green; color:white;">Pay via mpesa</button>
-                    </div>
+                        <img src="${i.image_url}" class="image" alt="image"/><br/>
+                        <p style="font-size:25px;">${i.product_name} @ Ksh ${i.price}.00</p><br/>
+                        <button class="mpesa" style="display:flex;">
+                            <i class="material-icons" style="font-size:18px; margin-right:5px;">payment</i> 
+                            <span>  Pay via mpesa</span>
+                        </button>
                 </div>
                 `
             }
@@ -36,7 +38,7 @@ const showPaymentModal=(element,items,index)=>{
 
 const closePaymentModal=(element)=>{
     element.addEventListener("click",()=>{
-        document.querySelector(".payment").innerHTML=""
+        document.querySelector(".payment").style.display="none"
     })
 }
 

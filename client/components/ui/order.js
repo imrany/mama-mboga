@@ -13,6 +13,7 @@ const ordersArray=(element,orders)=>{
         };
         add.onerror = (err) => {
            alert('This item exist, add another item!');
+           document.querySelector(".cart").style.display="none"
         };
     })
 }
@@ -31,7 +32,7 @@ function OrderContent(){
     const getItems=orderStore.getAll()
     getItems.onsuccess = (ev) => {
         document.getElementById("app").innerHTML=`
-        <div>
+        <div class="order-page">
             <h2>Orders</h2>
             <div class="order-list">
             </div>
@@ -52,9 +53,9 @@ function OrderContent(){
                 if(i.payment===false){
                     li=`
                     <div key=${i.id} class="order-item">
-                        <div>
+                        <div class="my-order">
                             <img class="image" src="${i.image_url}" alt="${i.product_name}"/>
-                            <p>Selling ${i.product_name} @ ksh${i.price}.00</p>
+                            <p>${i.product_name} @ ksh${i.price}.00</p>
                             <p>Category  ${i.category}</p>
                             <p style="color:red;">Not paid</p>
                         </div>
@@ -63,9 +64,9 @@ function OrderContent(){
                 }else{
                     li=`
                     <div key=${i.id} class="order-item">
-                        <div>
+                        <div class="my-order">
                             <img class="image" src="${i.image_url}" alt="${i.product_name}"/>
-                            <p>Selling ${i.product_name} @ ksh${i.price}.00</p>
+                            <p>${i.product_name} @ ksh${i.price}.00</p>
                             <p>Category  ${i.category}</p>
                             <p style="color:green;">Paid</p>
                         </div>
