@@ -27,6 +27,7 @@ const viewOrder=(element)=>{
 }
 
 function OrderContent(){
+    window.scrollTo(0,0)
     const transaction=db.transaction("Orders","readwrite")
     const orderStore=transaction.objectStore("Orders")
     const getItems=orderStore.getAll()
