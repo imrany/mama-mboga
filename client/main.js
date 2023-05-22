@@ -77,10 +77,10 @@ document.querySelector('#app').innerHTML = `
           </select>
         </div>
 
-      <div class="cat-items">
-        
-      </div>
+      <div class="cat-items"></div>
     </div>
+
+    <div class="cart"></div>
 
   </div>
 

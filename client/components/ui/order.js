@@ -9,7 +9,7 @@ const ordersArray=(element,orders)=>{
         const add=orderStore.add(orders)
         add.onsuccess = (ev) => {
             alert('Item was successfully added');
-            document.querySelector(".cart").innerHTML=""
+            document.querySelector(".cart").style.display="none"
         };
         add.onerror = (err) => {
            alert('This item exist, add another item!');
