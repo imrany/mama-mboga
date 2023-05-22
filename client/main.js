@@ -1,7 +1,7 @@
 import './styles/style.css'
 import './styles/responsive.css'
 import mamaLogo from '/image/logo.png'
-import { handleSearch } from './components/handleSearch'
+import { handleSearch, handleSelect } from './components/handleSearch'
 import { products } from './data'
 import { showCart } from './components/ui/cart'
 import { viewOrder } from './components/ui/order'
@@ -68,12 +68,12 @@ document.querySelector('#app').innerHTML = `
 
   
     <div class="cat-body">
-      <h1>Shop by Categories</h1>
+      <h1 class="head">Shop by Categories</h1>
         <div class="cat-section">
           <select class="select-category" name="category">
-          <option disabled>All Categories</option>
-            <option value="1">Fruits</option>
-            <option value="2">Vegetable</option>
+          <option>All Categories</option>
+            <option value="Fruits">Fruits</option>
+            <option value="Vegetables">Vegetables</option>
           </select>
         </div>
 
@@ -151,3 +151,4 @@ document.querySelectorAll(".shop").forEach((element,index)=>{
 viewOrder(document.querySelector(".view-order"))
 handleSearch(document.querySelector(".search-input"))
 viewPaymentFromNavBar.open(document.querySelector(".view-payment"))
+handleSelect(document.querySelector(".select-category"))
