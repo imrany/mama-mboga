@@ -104,8 +104,9 @@ products.forEach((i,n)=>{
       <img src="${i.image_url}" alt="${i.product_name}"/>
       <p>${i.product_name} @ ksh${i.price}.00</p>
       <p>Category  <span class="cat-${n}"></span></p>
-      <button class="shop">
-        Shop Now
+      <button class="shop" style="display:flex;">
+      <i class="material-symbols-outlined" style="font-size:26px; margin-right:5px;">shopping_bag</i>
+      <span style="margin-top:5px;">Shop Now</span>
       </button>
     </div>
   </div>
