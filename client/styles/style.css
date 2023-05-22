@@ -133,3 +133,55 @@ button{
     font-weight: 700;
     margin: 10px 0;
 }
+
+footer{
+    display: flex;
+    flex-direction: column;
+    background: rgb(12, 66, 4);
+    color: white;
+    padding: 40px 30px;
+}
+footer a{
+    color: white;
+    font-size: large;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.copy-write{
+    text-align: center;
+    background: rgb(9, 56, 1);
+    padding: 10px 0;
+    color: white;
+}
+
+#auth{
+    height: 100vh;
+}
+#login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+#login h2{
+    font-size: 50px;
+    margin-bottom: 40px;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+.login-form input{
+    background: #bfdefa;
+    width: 50vw;
+    height: 50px;
+    font-size: large;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    padding: 0 20px;
+    color: gray;
+}
+input::placeholder{
+    font-size: large;
+}

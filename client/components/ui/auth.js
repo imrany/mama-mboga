@@ -5,15 +5,36 @@ import { handleLoginSubmit } from '../handleSubmit'
 import mamalogo from "/image/logo.png"
 
 document.getElementById("auth").innerHTML=`
-<a href="/index.html">
-    <img src="${mamalogo}" class="image" alt="Mama mboga's logo"/>
-</a>
+<nav>
+    <a href="/index.html">
+      <img src="${mamalogo}" class="logo" alt="mama mboga's logo" />
+    </a>
+    <div style="display:flex;">
+      <input class="search-input" name="Search" type="search" placeholder="Search for a product..."/>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/index.html">
+        <span class="material-icons">home_outline</span>
+          Home
+        </a>
+      </li>
+      <li class="view-order" style="cursor:pointer;">
+        <p><span class="material-icons">shopping_cart_outline</span>
+        My Cart</p>
+      </li>
+      <li class="view-payment" style="cursor:pointer;">
+        <p><span class="material-icons">payment_outline</span>
+        Payment</p>
+      </li>
+    </ul>
+</nav>
 <div id="login">
     
 </div>
 `
 document.getElementById("login").innerHTML=`
-    <h2>Login</h1>    
+    <h2>Login</h2>    
     <form class="login-form">
         <label>Enter Phone number</label>
         <input type="text" name="phone" placeholder="07xxxxxxxx" required/>

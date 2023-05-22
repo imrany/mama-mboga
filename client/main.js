@@ -83,6 +83,16 @@ document.querySelector('#app').innerHTML = `
     </div>
 
   </div>
+
+  <footer>
+    <div>
+      <h1>Quick Links</h1><br/><br/>
+      <a href="/pages/auth.html">Login</a><br/><br/>
+      <a href="#">My Cart</a><br/><br/>
+      <a href="#">Payment</a>
+    </div>
+  </footer>
+  <div class="copy-write">&copy; 2023</div>
   `
 
 let cat=[]
@@ -92,7 +102,7 @@ products.forEach((i,n)=>{
   <div class="item">
     <div>
       <img src="${i.image_url}" alt="${i.product_name}"/>
-      <p>Selling ${i.product_name} @ ksh${i.price}.00</p>
+      <p>${i.product_name} @ ksh${i.price}.00</p>
       <p>Category  <span class="cat-${n}"></span></p>
       <button class="shop">
         Shop Now
