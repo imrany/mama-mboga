@@ -67,7 +67,7 @@ document.querySelector('#app').innerHTML = `
   </div>
 
   
-    <div class="cat-body">
+    <div class="cat-body"  id="category">
       <h1 class="head">Shop by Categories</h1>
         <div class="cat-section">
           <select class="select-category" name="category">
@@ -88,8 +88,8 @@ document.querySelector('#app').innerHTML = `
     <div>
       <h1>Quick Links</h1><br/><br/>
       <a href="/pages/auth.html">Login</a><br/><br/>
-      <a href="#">My Cart</a><br/><br/>
-      <a href="#">Payment</a>
+      <a href="#category">Categories</a><br/><br/>
+      <a href="#">My Cart</a>
     </div>
   </footer>
   <div class="copy-write">&copy; 2023</div>
