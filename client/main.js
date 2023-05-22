@@ -7,6 +7,8 @@ import { showCart } from './components/ui/cart'
 import { viewOrder } from './components/ui/order'
 import { viewPaymentFromNavBar } from './components/ui/payment'
 
+import grapes from "/image/grapes.jpg"
+
 window.scrollTo(0,0)
 document.querySelector('#app').innerHTML = `
 <div class="top">
@@ -36,14 +38,6 @@ document.querySelector('#app').innerHTML = `
       </li>
     </ul>
   </nav>
-  
-  <div class="cat-section">
-      <select class="select-category" name="category">
-      <option disabled>All Categories</option>
-        <option value="1">Fruits</option>
-        <option value="2">Vegetable</option>
-      </select>
-  </div>
 
   <div class="hero-section">
     <h2>Have Fresh Groceries Delivered</h2>
@@ -54,7 +48,7 @@ document.querySelector('#app').innerHTML = `
     
   <div class="about-section">
     <div>
-      <span class="material-icons" style="font-size:60px;">shopping_cart_outline</span>
+      <span class="material-icons" style="font-size:60px;">shopping_cart</span>
       <h3>Order</h3>
       <p>Order an item</p>
     </div>
@@ -70,30 +64,44 @@ document.querySelector('#app').innerHTML = `
       <h3>Delivery</h3>
       <p>Same Day Delivery</p>
     </div>
-
   </div>
+
   
+    <div class="cat-body">
+      <h1>Shop by Categories</h1>
+        <div class="cat-section">
+          <select class="select-category" name="category">
+          <option disabled>All Categories</option>
+            <option value="1">Fruits</option>
+            <option value="2">Vegetable</option>
+          </select>
+        </div>
+
+      <div class="cat-items">
+        
+      </div>
+    </div>
+
   </div>
   `
-//   <div class="products-window">
-//   </div>
-// </div>
 
-// <div class="cart">
 let cat=[]
 let items=products
 products.forEach((i,n)=>{
   let li=`
-  <div class="products">
+  <div class="item">
     <div>
-      <img class="image" src="${i.image_url}" alt="${i.product_name}"/>
+      <img src="${i.image_url}" alt="${i.product_name}"/>
       <p>Selling ${i.product_name} @ ksh${i.price}.00</p>
       <p>Category  <span class="cat-${n}"></span></p>
+      <button class="shop">
+        Shop Now
+      </button>
     </div>
   </div>
   `
   cat.push({index:n,cat:i.category})
-  document.querySelector(".products-window").innerHTML+=li
+  document.querySelector(".cat-items").innerHTML+=li
 })
 
 cat.forEach((item)=>{
@@ -126,7 +134,7 @@ cat.forEach((item)=>{
   }
 })
 
-document.querySelectorAll(".products").forEach((element,index)=>{
+document.querySelectorAll(".shop").forEach((element,index)=>{
   showCart(element,index,items)
 })
 
